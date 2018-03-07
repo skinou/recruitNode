@@ -4,6 +4,9 @@ var Login = require('../db/login')
 var User = require('../db/user')
 
 /* GET users listing. */
+// ------------------------------------------用户注册/登陆---------------------------------------------------
+
+
 router.post('/userLogin', function(req, res, next) {
     console.log(req.body.account)
     // console.log(req.body.password)
@@ -77,10 +80,59 @@ router.post('/userReg', function(req, res, next) {
     });
 });
 
-router.get('/home', function(req, res, next) {
-    console.log(req.session.user);
-    res.send(req.session.user)
-    // var login = new Login();
+// router.get('/home', function(req, res, next) {
+//     console.log(req.session.user);
+//     res.send(req.session.user)
+//     // var login = new Login();
+// });
+
+// ------------------------------------------公司注册/登陆---------------------------------------------------
+
+
+router.post('/companyLogin', function(req, res, next) {
+    console.log(req.body.account)
+    // console.log(req.body.password)
+    var login = new Login();
+    login.selectCompanyAccount(req.body.account,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        if(result.length!==0){
+            req.session.company={
+                name:result[0].cname
+            }
+        }
+        res.send(result);
+    });
+});
+
+
+router.post('/companyReg', function(req, res, next) {
+    console.log(req.body.account);
+    console.log(req.body.password);
+    console.log(req.body.cname);
+    var account = req.body.account;
+    var password = req.body.password;
+    var cname = req.body.cname;
+    var login = new Login();
+    login.selectCompanyAccount(account,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        console.log(result)
+        console.log(result)
+        if(result.length!==0){
+            res.send('账号已被注册');
+        }
+        else{
+            login.companyReg(cname,account,password,function(err){
+                if(err){
+                    console.log(err)
+                }
+                res.send('注册成功');
+            });
+        }
+    });
 });
 
 
