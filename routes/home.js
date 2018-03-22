@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Home = require('../db/home')
+var Home = require('../db/home');
 
 router.get('/getHomeJob', function(req, res, next) {
     // var id = req.session.user.id;

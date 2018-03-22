@@ -16,9 +16,10 @@ Home.prototype.selectJob = function (callback) {
                 callback(true);
                 return;
             }
+            connection.release();
             callback(false, results);
         });
-        connection.release();
+
     });
 
 };
@@ -37,9 +38,9 @@ Home.prototype.selectCompany = function (callback) {
                 callback(true);
                 return;
             }
+            connection.release();
             callback(false, results);
         });
-        connection.release();
     });
 
 };

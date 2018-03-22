@@ -10,6 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var home = require('./routes/home');
+var company = require('./routes/company');
 
 var app = express();
 
@@ -28,7 +29,12 @@ app.all('*', function(req, res, next) {
     // res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
     res.header('Access-Control-Allow-Credentials', true);
-    next();
+    if(req.method==="OPTIONS") {
+        res.send(200);/*让options请求快速返回*/
+    }
+    else  {
+        next();
+    }
 });
 
 // view engine setup
@@ -47,6 +53,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/home', home);
+app.use('/company', company);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

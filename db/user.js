@@ -17,11 +17,10 @@ User.prototype.insertUserInfo = function (id,name,callback) {
         connection.query(sql, [id,name], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
         });
-        connection.release();
     });
 };
 
@@ -37,11 +36,12 @@ User.prototype.updateName = function (name,id,callback) {
         connection.query(sql, [name,id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
+
         });
-        connection.release();
+
     });
 };
 
@@ -57,11 +57,11 @@ User.prototype.selectInfo = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -77,11 +77,11 @@ User.prototype.updateImg = function (img,id,callback) {
         connection.query(sql, [img,id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
         });
-        connection.release();
+
     });
 };
 
@@ -97,11 +97,12 @@ User.prototype.updateUserInfo = function (name,sex,age,city,degree,major,school,
         connection.query(sql, [name,sex,age,city,degree,major,school,phone,email,id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
+
         });
-        connection.release();
+
     });
 };
 
@@ -120,11 +121,12 @@ User.prototype.insertUserExpect = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
+
         });
-        connection.release();
+
     });
 };
 
@@ -140,12 +142,11 @@ User.prototype.updateUserExpect = function (name,type,city,salary,statement,id,c
         connection.query(sql, [name,type,city,salary,statement,id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
         });
 
-        connection.release();
     });
 };
 
@@ -161,11 +162,12 @@ User.prototype.selectExpect = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
+
         });
-        connection.release();
+
     });
 };
 
@@ -183,11 +185,11 @@ User.prototype.selectEducation = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -203,11 +205,11 @@ User.prototype.insertEducation = function (id,school,degree,major,start,end,call
         connection.query(sql, [id,school,degree,major,start,end], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -223,11 +225,11 @@ User.prototype.deleteEducation = function (id,keyid,callback) {
         connection.query(sql, [id,keyid], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -247,11 +249,11 @@ User.prototype.selectWork = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -267,11 +269,12 @@ User.prototype.insertWork = function (id,company,position,start,end,statement,ca
         connection.query(sql, [id,company,position,start,end,statement], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -287,11 +290,11 @@ User.prototype.deleteWork = function (id,keyid,callback) {
         connection.query(sql, [id,keyid], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -310,11 +313,12 @@ User.prototype.selectPro = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
+
         });
-        connection.release();
+
     });
 };
 
@@ -330,11 +334,12 @@ User.prototype.insertPro = function (id,project,start,end,statement,callback) {
         connection.query(sql, [id,project,start,end,statement], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
+
         });
-        connection.release();
+
     });
 };
 
@@ -350,11 +355,13 @@ User.prototype.deletePro = function (id,keyid,callback) {
         connection.query(sql, [id,keyid], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+
+            connection.release();
+            callback(false, results);
+
         });
-        connection.release();
+
     });
 };
 
@@ -374,11 +381,12 @@ User.prototype.selectDes = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
+
         });
-        connection.release();
+
     });
 };
 
@@ -395,11 +403,12 @@ User.prototype.insertDes = function (id,statement,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
+
         });
-        connection.release();
+
     });
 };
 
@@ -416,11 +425,12 @@ User.prototype.updateDes = function (id,statement,callback) {
         connection.query(sql, [statement,id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
+
         });
-        connection.release();
+
     });
 };
 
@@ -440,11 +450,11 @@ User.prototype.selectSkill = function (id,callback) {
         connection.query(sql, [id], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback(false, results);
             }
+            connection.release();
+            callback(false, results);
         });
-        connection.release();
+
     });
 };
 
@@ -460,11 +470,12 @@ User.prototype.insertSkill = function (id,skill,sValue,callback) {
         connection.query(sql, [id,skill,sValue], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
+
         });
-        connection.release();
+
     });
 };
 
@@ -480,15 +491,14 @@ User.prototype.deleteSkill = function (id,keyid,callback) {
         connection.query(sql, [id,keyid], function(err, results) {
             if (err) {
                 callback('false');
-            } else {
-                callback('true');
             }
+            connection.release();
+            callback('true');
+
         });
-        connection.release();
+
     });
 };
-
-
 
 
 
