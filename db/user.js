@@ -1,6 +1,6 @@
 var db = require('./db_pool');
 
-var User = function () {};
+var User = function(){};
 
 
 // ----------------------------个人信息------------------------------------

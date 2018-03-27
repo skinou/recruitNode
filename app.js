@@ -3,24 +3,19 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var session = require("express-session");
 var bodyParser = require('body-parser');
+var session = require("express-session");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+
 var login = require('./routes/login');
 var home = require('./routes/home');
 var company = require('./routes/company');
+var job = require('./routes/job');
+
 
 var app = express();
-
-app.use(cookieParser());
-app.use(session({
-    secret: '12345',//与cookieParser中的一致
-    cookie:{maxAge:60000},
-    resave: false,
-    saveUninitialized:true
-}));
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:8080"); //为了跨域保持session，所以指定地址，不能用*
@@ -37,6 +32,7 @@ app.all('*', function(req, res, next) {
     }
 });
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -47,13 +43,22 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+    secret: '12345',//与cookieParser中的一致
+    cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},//30 days
+    resave: false,
+    saveUninitialized:true
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
 app.use('/login', login);
 app.use('/home', home);
 app.use('/company', company);
+app.use('/job', job);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

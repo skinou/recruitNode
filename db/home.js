@@ -1,6 +1,6 @@
-var db = require('./db_pool')
+var db = require('./db_pool');
 
-var Home = function () {}
+var Home = function(){};
 
 Home.prototype.selectJob = function (callback) {
     var sql = "SELECT * FROM recruitment.home_job;";

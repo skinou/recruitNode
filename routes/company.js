@@ -385,7 +385,4 @@ router.post('/updateCompanyPassword', function(req, res, next) {
 });
 
 
-
-
-
 module.exports = router;

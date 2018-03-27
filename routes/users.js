@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../db/user')
+var User = require('../db/user');
 
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
@@ -10,16 +10,16 @@ var User = require('../db/user')
 // ----------------------------个人信息------------------------------------
 
 router.post('/userInfo', function(req, res, next) {
-    console.log(req.body.name);
-    console.log(req.body.sex);
-    console.log(req.body.age);
-    console.log(req.body.city);
-    console.log(req.body.major);
-    console.log(req.body.degree);
-    console.log(req.body.school);
-    console.log(req.body.phone);
-    console.log(req.body.email);
-    console.log(req.session.id);
+    // console.log(req.body.name);
+    // console.log(req.body.sex);
+    // console.log(req.body.age);
+    // console.log(req.body.city);
+    // console.log(req.body.major);
+    // console.log(req.body.degree);
+    // console.log(req.body.school);
+    // console.log(req.body.phone);
+    // console.log(req.body.email);
+    // console.log(req.session.id);
     var name = req.body.name;
     var sex = req.body.sex;
     var age = req.body.age;
@@ -30,16 +30,16 @@ router.post('/userInfo', function(req, res, next) {
     var phone = req.body.phone;
     var email = req.body.email;
     var id = req.session.user.id;
-    console.log(name);
-    console.log(sex);
-    console.log(age);
-    console.log(city);
-    console.log(major);
-    console.log(degree);
-    console.log(school);
-    console.log(phone);
-    console.log(email);
-    console.log(id);
+    // console.log(name);
+    // console.log(sex);
+    // console.log(age);
+    // console.log(city);
+    // console.log(major);
+    // console.log(degree);
+    // console.log(school);
+    // console.log(phone);
+    // console.log(email);
+    // console.log(id);
     var user = new User();
     user.updateUserInfo(name,sex,age,city,degree,major,school,phone,email,id,function(err,result){
         if(err){
@@ -57,6 +57,8 @@ router.post('/userInfo', function(req, res, next) {
 router.get('/userInfo', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
+
+    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectInfo(id,function(err,result){
         if(err){
             console.log(err)
@@ -111,6 +113,8 @@ router.post('/userExpectUpdate', function(req, res, next) {
 router.get('/userExpect', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
+
+    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectExpect(id,function(err,result){
         if(err){
             console.log(err)
@@ -126,6 +130,8 @@ router.get('/userExpect', function(req, res, next) {
 router.get('/getUserEducation', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
+
+    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectEducation(id,function(err,result){
         if(err){
             console.log(err)
@@ -174,6 +180,8 @@ router.post('/insertUserEducation', function(req, res, next) {
 router.get('/getUserWork', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
+
+    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectWork(id,function(err,result){
         if(err){
             console.log(err)
@@ -269,6 +277,8 @@ router.post('/insertUserPro', function(req, res, next) {
 router.get('/getUserDes', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
+
+    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectDes(id,function(err,result){
         if(err){
             console.log(err)
@@ -297,6 +307,8 @@ router.post('/updateUserDes', function(req, res) {
 router.get('/getUserSkill', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
+
+    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectSkill(id,function(err,result){
         if(err){
             console.log(err)
