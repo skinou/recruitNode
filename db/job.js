@@ -44,12 +44,17 @@ Job.prototype.selectJobForCompany = function (cid,callback) {
                 callback('false');
             }
             connection.release();
-            callback(false,results);
+            callback(false, results);
+            
+
+            console.log('151561111111111111111111111111136156161615631563156')
 
         });
 
     });
 };
+
+
 
 
 
