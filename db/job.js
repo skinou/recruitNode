@@ -80,6 +80,147 @@ Job.prototype.selectJobDetail = function (jkey,callback) {
 };
 
 
+// ------------------------------------------修改 公司 特定 岗位信息------------------------------------------------
+
+
+Job.prototype.updateJobDetail = function (obj,jkey,callback) {
+    var sql = 'update recruitment.job_release set jname= ? , salary= ?, city= ? , direction= ? ,experience= ? ,degree= ? ,jtype= ? ,jobTag= ? where jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [obj.jname,obj.salary,obj.city,obj.direction,obj.experience,obj.degree,obj.jtype,obj.jobTag,jkey], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback("true");
+        });
+
+    });
+};
+
+
+// ------------------------------------------修改公司 岗位诱惑 ------------------------------------------------
+
+
+Job.prototype.updateJobTemptation = function (temptation,jkey,callback) {
+    var sql = 'update recruitment.job_release set temptation= ? where jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [temptation,jkey], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback("true");
+        });
+
+    });
+};
+
+// ------------------------------------------修改公司 岗位职责 ------------------------------------------------
+
+
+Job.prototype.updateJobDuty = function (duty,jkey,callback) {
+    var sql = 'update recruitment.job_release set duty= ? where jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [duty,jkey], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback("true");
+        });
+
+    });
+};
+
+
+// ------------------------------------------修改公司 岗位能力 ------------------------------------------------
+
+
+Job.prototype.updateJobAbility = function (ability,jkey,callback) {
+    var sql = 'update recruitment.job_release set ability= ? where jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [ability,jkey], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback("true");
+        });
+
+    });
+};
+
+// ------------------------------------------修改公司 岗位技能 ------------------------------------------------
+
+
+Job.prototype.updateJobSkill = function (skill,jkey,callback) {
+    var sql = 'update recruitment.job_release set skill= ? where jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [skill,jkey], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback("true");
+        });
+
+    });
+};
+
+
+// ------------------------------------------修改公司 岗位工作地址 ------------------------------------------------
+
+
+Job.prototype.updateJobAddress = function (address,jkey,callback) {
+    var sql = 'update recruitment.job_release set address= ? where jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [address,jkey], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback("true");
+        });
+
+    });
+};
+
 
 
 
