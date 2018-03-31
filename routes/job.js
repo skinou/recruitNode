@@ -40,4 +40,25 @@ router.get('/selectJobForCompany', function(req, res, next) {
 
 
 
+// ------------------------------------获取 指定 岗位信息----------------------------------------------
+
+router.post('/selectJobDetail', function(req, res, next) {
+    // 获取公司基本信息
+
+    var jkey = req.body.jkey;
+    console.log(jkey);
+
+    var job = new Job();
+
+    job.selectJobDetail( jkey,function(err,result){
+        if(err){
+            console.log(err)
+        }
+
+        console.log(result);
+        res.send(result)
+    });
+});
+
+
 module.exports = router;
