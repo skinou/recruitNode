@@ -58,7 +58,6 @@ router.get('/userInfo', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
 
-    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectInfo(id,function(err,result){
         if(err){
             console.log(err)
@@ -114,7 +113,6 @@ router.get('/userExpect', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
 
-    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectExpect(id,function(err,result){
         if(err){
             console.log(err)
@@ -131,7 +129,6 @@ router.get('/getUserEducation', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
 
-    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectEducation(id,function(err,result){
         if(err){
             console.log(err)
@@ -181,7 +178,6 @@ router.get('/getUserWork', function(req, res, next) {
     var id = req.session.user.id;
     var user = new User();
 
-    console.log('1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
     user.selectWork(id,function(err,result){
         if(err){
             console.log(err)

@@ -43,10 +43,8 @@ router.get('/selectJobForCompany', function(req, res, next) {
 // ------------------------------------获取 指定 岗位信息----------------------------------------------
 
 router.post('/selectJobDetail', function(req, res, next) {
-    // 获取公司基本信息
 
     var jkey = req.body.jkey;
-    console.log('123121231231132')
     console.log(jkey);
 
     var job = new Job();

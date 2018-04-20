@@ -13,6 +13,8 @@ var login = require('./routes/login');
 var home = require('./routes/home');
 var company = require('./routes/company');
 var job = require('./routes/job');
+var job_resume = require('./routes/job_resume');
+var deliver = require('./routes/deliver');
 
 
 var app = express();
@@ -59,6 +61,9 @@ app.use('/login', login);
 app.use('/home', home);
 app.use('/company', company);
 app.use('/job', job);
+app.use('/job_resume', job_resume);
+app.use('/deliver', deliver);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
