@@ -177,5 +177,31 @@ router.post('/updateJobResumeState', function(req, res, next) {
 
 
 
+// ------------------------------------------插入简历 ------------------------------------------------
+
+
+router.post('/insertResume', function(req, res, next) {
+    var state = '投递成功';
+    var id = req.session.user.id;
+    var cid = req.body.cid;
+    var jkey = req.body.jkey;
+    var rtime = req.body.rtime;
+    var jobResume = new JobResume();
+
+    jobResume.updateJobResumeState(id,cid,jkey,state,rtime,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        res.send('true');
+    });
+});
+
+
+
+
+
+
+
+
 
 module.exports = router;

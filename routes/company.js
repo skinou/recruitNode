@@ -8,6 +8,23 @@ var Login = require('../db/login');
 //     res.render('index', { title: 'Express' });
 // });
 
+// ------------------------------------获取所有公司----------------------------------------------
+
+router.get('/getAllCompany', function(req, res, next) {
+    // 获取公司基本信息
+    var company = new Company();
+    company.selectCompanyAll(function(err,result){
+        if(err){
+            console.log(err)
+        }
+        console.log(result);
+        res.send(result)
+    });
+});
+
+
+
+
 // ------------------------------------公司信息----------------------------------------------
 
 router.get('/getCompany', function(req, res, next) {

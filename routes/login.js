@@ -25,6 +25,12 @@ router.post('/userLogin', function(req, res, next) {
                 type:'个人用户'
             }
         }
+        // req.session.user={
+        //     account:result[0].account,
+        //     name:result[0].name,
+        //     id:result[0].id,
+        //     type:'个人用户'
+        // }
 
         res.send(result);
     });

@@ -49,6 +49,28 @@ Company.prototype.selectCompanyInfo = function (cid,callback) {
 };
 
 
+Company.prototype.selectCompanyAll = function (callback) {
+    var sql = "SELECT * FROM recruitment.company_info ";
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, function(err, results) {
+            if (err) {
+                callback('false');
+            }
+            connection.release();
+            callback(false, results);
+
+        });
+
+    });
+};
+
+
 
 Company.prototype.updateCompanyImg = function (cimg,cid,callback) {
     var sql = "UPDATE recruitment.company_info SET cimg=? WHERE cid=?;";

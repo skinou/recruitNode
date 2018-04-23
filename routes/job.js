@@ -196,6 +196,24 @@ router.post('/updateJobAddress', function(req, res, next) {
 
 
 
+// ------------------------------------------选取公司 特定 岗位信息（ 用户页面 ）------------------------------------------------
+
+
+
+router.get('/selectJobDetailForUser', function(req, res, next) {
+    var jkey = req.query.jkey;
+    var job = new Job();
+
+    job.selectJobDetailForUser(jkey,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        // var arr = result[0].statement.split('\n')
+        console.log(result);
+        res.send(result);
+    });
+});
+
 
 
 module.exports = router;

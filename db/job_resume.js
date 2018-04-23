@@ -76,4 +76,30 @@ JobResume.prototype.updateJobResumeState = function (state,rkey,callback) {
 
 
 
+
+// ------------------------------------------插入简历 ------------------------------------------------
+
+
+JobResume.prototype.insertResume = function (id,cid,jkey,state,rtime,callback) {
+    var sql = 'insert into recruitment.job_resume(rkey,id,cid,jkey,state,rtime) values (null,?,?,?,?,?);';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql,[id,cid,jkey,state,rtime],function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback('true');
+        });
+
+    });
+};
+
+
+
 module.exports = JobResume;

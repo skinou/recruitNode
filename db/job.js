@@ -225,4 +225,33 @@ Job.prototype.updateJobAddress = function (address,jkey,callback) {
 
 
 
+
+// ------------------------------------------选取公司 特定 岗位信息（ 用户页面 ）------------------------------------------------
+
+
+Job.prototype.selectJobDetailForUser = function (jkey,callback) {
+    var sql = 'SELECT * FROM recruitment.job_release inner join recruitment.company_info where job_release.cid = company_info.cid and jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [jkey], function(err, results) {
+            if (err) {
+                callback('false');
+            }
+            connection.release();
+            callback(false, results);
+
+
+        });
+
+    });
+};
+
+
+
+
 module.exports = Job;
