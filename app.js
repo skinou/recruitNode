@@ -17,7 +17,7 @@ var job_resume = require('./routes/job_resume');
 var deliver = require('./routes/deliver');
 var collect = require('./routes/collect');
 var companyForUser = require('./routes/companyForUser');
-
+var search = require('./routes/search');
 
 
 var app = express();
@@ -68,6 +68,7 @@ app.use('/job_resume', job_resume);
 app.use('/deliver', deliver);
 app.use('/collect', collect);
 app.use('/companyForUser', companyForUser);
+app.use('/search', search);
 
 
 // catch 404 and forward to error handler

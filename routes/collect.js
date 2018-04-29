@@ -57,10 +57,23 @@ router.post('/deleteCollectList', function(req, res, next) {
         // console.log(result);
         res.send('true');
     });
-
 });
 
+router.get('/isCollect', function(req, res, next) {
+    var id = req.session.user.id;
+    var jkey = req.query.jkey;
+    console.log(id);
+    console.log(jkey);
+    var collect = new Collect();
 
+    collect.isCollect(id,jkey,function(err,result) {
+        if (err) {
+            console.log(err)
+        }
+        // console.log(result);
+        res.send(result);
+    });
+});
 
 
 

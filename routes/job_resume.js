@@ -199,6 +199,21 @@ router.post('/insertResume', function(req, res, next) {
 
 
 
+// ------------------------------------------查询是否投简历 ------------------------------------------------
+
+
+router.get('/isPost', function(req, res, next) {
+    var id = req.session.user.id;
+    var jkey = req.query.jkey;
+    var jobResume = new JobResume();
+
+    jobResume.isPost(id,jkey,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        res.send('true');
+    });
+});
 
 
 

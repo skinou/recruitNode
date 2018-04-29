@@ -68,5 +68,26 @@ Collect.prototype.deleteCollectList = function (id,jkey,callback) {
 };
 
 
+Collect.prototype.isCollect = function (id,jkey,callback) {
+    var sql = 'select * from recruitment.collect where id = ? and jkey = ?;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql,[id,jkey],function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback(false,results);
+        });
+
+    });
+};
+
+
 
 module.exports = Collect;

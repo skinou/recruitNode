@@ -62,9 +62,9 @@ router.get('/userInfo', function(req, res, next) {
         if(err){
             console.log(err)
         }
-        var imgData = new Buffer( result[0].img).toString();
-        console.log(result);
-        result[0].img = imgData;
+        // var imgData = new Buffer( result[0].img).toString();
+        // console.log(result);
+        // result[0].img = imgData;
         console.log(result);
         res.send(result);
     });
