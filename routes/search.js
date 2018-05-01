@@ -12,11 +12,18 @@ router.post('/search', function(req, res, next) {
     var newkey = "%"+keyword+"%";
     var search = new Search();
 
+    console.log(keyword);
+    console.log(newkey);
+
     search.conditionSearch(newkey,function(err,result) {
         if (err) {
             console.log(err)
         }
+        console.log(result);
         res.send(result);
     });
 
 });
+
+
+module.exports = router;

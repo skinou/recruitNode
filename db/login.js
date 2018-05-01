@@ -52,8 +52,8 @@ Login.prototype.selectId = function (id,callback) {
 };
 
 
-Login.prototype.userReg = function (id,name,account,password,callback) {
-    var sql = "insert into recruitment.userlogin (id,name,account,password) values (?,?,?,?);";
+Login.prototype.userReg = function (id,name,account,password,c_time,callback) {
+    var sql = "insert into recruitment.userlogin (id,name,account,password,c_time) values (?,?,?,?,?);";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -61,7 +61,7 @@ Login.prototype.userReg = function (id,name,account,password,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [id,name,account,password], function(err, results) {
+        connection.query(sql, [id,name,account,password,c_time], function(err, results) {
             if (err) {
                 callback('false');
             } else {
@@ -72,6 +72,32 @@ Login.prototype.userReg = function (id,name,account,password,callback) {
 
     });
 };
+
+
+//--------------------------------------------修改密码---------------------------------------------------
+
+Login.prototype.updateUserPassword = function (password,id,callback) {
+    var sql = "update recruitment.userlogin set password=? where id=?;";
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [password,id], function(err, results) {
+            if (err) {
+                callback('false');
+            }
+
+            connection.release();
+            callback('true');
+
+        });
+    });
+};
+
+
 
 
 // ------------------------------------------公司注册/登陆---------------------------------------------------
@@ -142,8 +168,8 @@ Login.prototype.selectCompanyAccount = function (account,callback) {
 };
 
 
-Login.prototype.selectCname = function (cname,cid,callback) {
-    var sql = "SELECT * FROM recruitment.company_login WHERE cname =? and cid!=? ";
+Login.prototype.selectCname = function (cname,callback) {
+    var sql = "SELECT * FROM recruitment.company_login WHERE cname =? ";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -151,7 +177,7 @@ Login.prototype.selectCname = function (cname,cid,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [cname,cid], function(err, results) {
+        connection.query(sql, [cname], function(err, results) {
             if (err) {
                 callback(true);
                 return;
@@ -185,7 +211,7 @@ Login.prototype.selectCid = function (cid,callback) {
 
 
 Login.prototype.companyReg = function (obj,callback) {
-    var sql = "insert into recruitment.company_login (cid,cname,account,password) values (?,?,?,?);";
+    var sql = "insert into recruitment.company_login (cid,cname,account,password,c_time) values (?,?,?,?,?);";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -193,7 +219,7 @@ Login.prototype.companyReg = function (obj,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [obj.cid,obj.cname,obj.account,obj.password], function(err, results) {
+        connection.query(sql, [obj.cid,obj.cname,obj.account,obj.password,obj.c_time], function(err, results) {
             if (err) {
                 callback('false');
             }

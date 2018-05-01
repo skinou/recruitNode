@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../db/user');
+var Login = require('../db/login');
 
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
@@ -342,6 +343,24 @@ router.post('/insertUserSkill', function(req, res, next) {
     });
 });
 
+
+
+
+
+
+
+router.post('/updateUserPassword', function(req, res, next) {
+    var password = req.body.password;
+    var id = req.session.user.id;
+    console.log(id);
+    var login = new Login();
+    login.updateUserPassword(password,id,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        res.send('true');
+    });
+});
 
 
 module.exports = router;

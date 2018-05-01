@@ -87,4 +87,19 @@ router.get('/selectJobForCompany', function(req, res, next) {
 
 
 
+router.get('/selectCompanyManager', function(req, res, next) {
+    //提取团队信息
+    var cid = req.query.cid;
+    var company = new Company();
+
+    company.selectCompanyManager(cid,function(err,result) {
+        if (err) {
+            console.log(err)
+        }
+        console.log(result);
+        res.send(result);
+    });
+
+});
+
 module.exports = router;

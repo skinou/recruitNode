@@ -71,7 +71,6 @@ router.post('/insertCompany', function(req, res, next) {
     console.log(company_login);
     console.log('------------------------');
     var field = company_info.field.toString();
-    // company_info.field = str;
     console.log(company_info);
     console.log(field);
     login.companyReg(company_login,function(err,result) {
@@ -87,10 +86,8 @@ router.post('/insertCompany', function(req, res, next) {
                 if(err){
                     console.log(err)
                 }
-
                 res.send('注册成功');
             });
-            // res.send('注册成功');
         });
 
     });

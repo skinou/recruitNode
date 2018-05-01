@@ -59,7 +59,7 @@ router.post('/userReg', function(req, res, next) {
                     res.send('账号已被注册');
                 }
                 else{
-                    login.userReg(req.body.id,req.body.name,req.body.account,req.body.password,function(err){
+                    login.userReg(req.body.id,req.body.name,req.body.account,req.body.password,req.body.c_time,function(err){
                         if(err){
                             console.log(err)
                         }
@@ -121,13 +121,11 @@ router.post('/companyReg', function(req, res, next) {
     console.log(req.body.account);
     console.log(req.body.cname);
     console.log(req.body.cid);
+
     var login = new Login();
     var account = req.body.account;
     var cname = req.body.cname;
     var cid = req.body.cid;
-    console.log(account);
-    console.log(cname);
-    console.log(cid);
     login.selectCompanyAccount(account,function(err,result){
         if(err){
             console.log(err)
@@ -152,18 +150,7 @@ router.post('/companyReg', function(req, res, next) {
                             res.send('公司名已被注册');
                         }
                         else {
-
                             res.send('注册成功');
-                            // login.companyReg(cid,cname,account,password,function(err){
-                            //     if(err){
-                            //         console.log(err)
-                            //     }
-                            //     company.insertCompanyInfo(cid,cname,function (err) {
-                            //         if(err){
-                            //             console.log(err)
-                            //         }
-                            //     });
-                            // });
                         }
                     });
 

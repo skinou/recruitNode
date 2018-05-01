@@ -6,7 +6,7 @@ var Company = function () {};
 // -------------------------------公司信息------------------------------------
 
 Company.prototype.insertCompanyInfo = function (obj,field,callback) {
-    var sql = "insert into recruitment.company_info (cid,cname,city,field,fiance,address,sentence,cimg) values (?,?,?,?,?,?,?,?);";
+    var sql = "insert into recruitment.company_info (cid,cname,city,field,fiance,address,sentence,cimg,c_time) values (?,?,?,?,?,?,?,?,?);";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -15,7 +15,7 @@ Company.prototype.insertCompanyInfo = function (obj,field,callback) {
         }
 
         // make the query
-        connection.query(sql, [obj.cid,obj.cname,obj.city,field,obj.fiance,obj.address,obj.sentence,obj.cimg], function(err, results) {
+        connection.query(sql, [obj.cid,obj.cname,obj.city,field,obj.fiance,obj.address,obj.sentence,obj.cimg,obj.c_time], function(err, results) {
             if (err) {
                 callback('false');
             }
@@ -50,7 +50,7 @@ Company.prototype.selectCompanyInfo = function (cid,callback) {
 
 
 Company.prototype.selectCompanyAll = function (callback) {
-    var sql = "SELECT * FROM recruitment.company_info ";
+    var sql = "select * from recruitment.company_info LEFT JOIN (SELECT COUNT(*) as count,cid FROM recruitment.job_release GROUP BY cid) as newtable on company_info.cid = newtable.cid ;";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
