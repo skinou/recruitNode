@@ -6,7 +6,7 @@ var Company = function () {};
 // -------------------------------公司信息------------------------------------
 
 Company.prototype.insertCompanyInfo = function (obj,field,callback) {
-    var sql = "insert into recruitment.company_info (cid,cname,city,field,fiance,address,sentence,cimg,c_time) values (?,?,?,?,?,?,?,?,?);";
+    var sql = "insert into recruitment.company_info (cid,cname,city,field,fiance,address,sentence,cimg,teamNum,c_time) values (?,?,?,?,?,?,?,?,?,?);";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -15,7 +15,7 @@ Company.prototype.insertCompanyInfo = function (obj,field,callback) {
         }
 
         // make the query
-        connection.query(sql, [obj.cid,obj.cname,obj.city,field,obj.fiance,obj.address,obj.sentence,obj.cimg,obj.c_time], function(err, results) {
+        connection.query(sql, [obj.cid,obj.cname,obj.city,field,obj.fiance,obj.address,obj.sentence,obj.cimg,obj.teamNum,obj.c_time], function(err, results) {
             if (err) {
                 callback('false');
             }
@@ -50,7 +50,7 @@ Company.prototype.selectCompanyInfo = function (cid,callback) {
 
 
 Company.prototype.selectCompanyAll = function (callback) {
-    var sql = "select * from recruitment.company_info LEFT JOIN (SELECT COUNT(*) as count,cid FROM recruitment.job_release GROUP BY cid) as newtable on company_info.cid = newtable.cid ;";
+    var sql = "select * from recruitment.company_info;";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -95,7 +95,7 @@ Company.prototype.updateCompanyImg = function (cimg,cid,callback) {
 
 
 Company.prototype.updateCompanyInfo = function (obj,cid,callback) {
-    var sql = "UPDATE recruitment.company_info SET cname=?, city=?, field=?,fiance=?,address=?,sentence=? WHERE cid=?;";
+    var sql = "UPDATE recruitment.company_info SET cname=?, city=?, field=?,fiance=?,address=?,sentence=?,teamNum = ? WHERE cid=?;";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -103,7 +103,7 @@ Company.prototype.updateCompanyInfo = function (obj,cid,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [obj.cname,obj.city,obj.field,obj.fiance,obj.address,obj.sentence,cid], function(err, results) {
+        connection.query(sql, [obj.cname,obj.city,obj.field,obj.fiance,obj.address,obj.sentence,obj.teamNum,cid], function(err, results) {
             if (err) {
                 callback('false');
             }
@@ -347,8 +347,8 @@ Company.prototype.selectCompanyTags = function (cid,callback) {
 
 
 
-Company.prototype.inertCompanyManager = function (cid,mname,mposition,mimg,callback) {
-    var sql = "insert into recruitment.company_manager (mkey,cid,mname,mposition,mimg) values (null,?,?,?,?)";
+Company.prototype.inertCompanyManager = function (cid,mname,mposition,mimg,mdesc,callback) {
+    var sql = "insert into recruitment.company_manager (mkey,cid,mname,mposition,mimg,mdesc) values (null,?,?,?,?,?)";
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -356,7 +356,7 @@ Company.prototype.inertCompanyManager = function (cid,mname,mposition,mimg,callb
             return;
         }
         // make the query
-        connection.query(sql, [cid,mname,mposition,mimg], function(err, results) {
+        connection.query(sql, [cid,mname,mposition,mimg,mdesc], function(err, results) {
             if (err) {
                 callback(err);
             }
@@ -399,6 +399,73 @@ Company.prototype.selectCompanyManager = function (cid,callback) {
         }
         // make the query
         connection.query(sql, [cid], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback(false,results);
+        });
+
+    });
+};
+
+
+// ----------------------------------------公司环境-----------------------------------------------
+
+
+
+Company.prototype.inertCompanyImg = function (cid,img,callback) {
+    var sql = "insert into recruitment.company_img (cid,img,ikey) values (?,?,null)";
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, [cid,img], function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback('true');
+        });
+
+    });
+};
+
+Company.prototype.deleteCompanyImg = function (cid,img,callback) {
+    var sql = "delete from recruitment.company_img where cid=? and img = ?;";
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(err);
+            return;
+        }
+        // make the query
+        connection.query(sql, [cid,img], function(err, results) {
+            if (err) {
+                callback('false');
+            }
+
+            connection.release();
+            callback('true');
+        });
+
+    });
+};
+
+
+Company.prototype.getCompanyImg = function (cid,callback) {
+    var sql = "SELECT * FROM recruitment.company_img where cid = ?";
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql,[cid], function(err, results) {
             if (err) {
                 callback(err);
             }

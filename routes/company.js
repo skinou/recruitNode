@@ -103,29 +103,33 @@ router.post('/updateCompany', function(req, res, next) {
 
     console.log(data);
 
-    login.selectCname(data.cname,req.session.user.id,function(err,result) {
-        if (err) {
+    // login.selectCname(data.cname,function(err,result) {
+    //     if (err) {
+    //         console.log(err)
+    //     }
+    //     if (result.length !== 0) {
+    //         res.send('公司名已被注册');
+    //     }
+    //     else {
+    //
+    //     }
+    // });
+
+    company.updateCompanyInfo(data,req.session.user.id,function(err,result){
+        if(err){
             console.log(err)
         }
-        if (result.length !== 0) {
-            res.send('公司名已被注册');
-        }
-        else {
-            company.updateCompanyInfo(data,req.session.user.id,function(err,result){
+        if(data.cname !== req.session.user.name){
+            company.updateName(data.cname,req.session.user.id,function (err,result) {
                 if(err){
                     console.log(err)
                 }
-                if(data.cname !== req.session.user.name){
-                    company.updateName(data.cname,req.session.user.id,function (err,result) {
-                        if(err){
-                            console.log(err)
-                        }
-                    });
-                }
-                res.send('true');
             });
         }
+        res.send('true');
     });
+
+
 });
 
 
@@ -154,7 +158,7 @@ router.post('/insertCompanyProduct', function(req, res, next) {
     var obj = req.body.obj;
     console.log(obj);
 
-    company.insertCompanyProduct(cid,obj.pimg,obj.pname,obj.desc,function(err,result) {
+    company.insertCompanyProduct(cid,obj.pimg,obj.pname,obj.des,function(err,result) {
         if (err) {
             console.log(err)
         }
@@ -315,7 +319,7 @@ router.post('/insertCompanyManager', function(req, res, next) {
 
     console.log(manager);
 
-    company.inertCompanyManager(cid,manager.mname,manager.mposition,manager.mimg,function(err,result) {
+    company.inertCompanyManager(cid,manager.mname,manager.mposition,manager.mimg,manager.mdesc,function(err,result) {
         if (err) {
             console.log(err)
         }
@@ -397,6 +401,63 @@ router.post('/updateCompanyPassword', function(req, res, next) {
     });
 
 });
+
+
+
+
+// ------------------------------------公司图片----------------------------------------------
+
+
+router.get('/getCompanyImg', function(req, res, next) {
+    //获取公司图片
+    var company = new Company();
+
+    company.getCompanyImg(req.session.user.id,function(err,result) {
+        if (err) {
+            console.log(err)
+        }
+        res.send(result);
+    });
+
+});
+
+
+router.post('/inertCompanyImg', function(req, res, next) {
+    //插入公司图片
+    var company = new Company();
+    var cid = req.session.user.id;
+    var img = req.body.img;
+
+    console.log(cid,img);
+
+    company.inertCompanyImg(cid,img,function(err,result) {
+        if (err) {
+            console.log(err)
+        }
+        res.send('true');
+    });
+
+});
+
+
+router.post('/deleteCompanyImg', function(req, res, next) {
+    //删除公司图片
+    var company = new Company();
+    var cid = req.session.user.id;
+    var img = req.body.img;
+
+    company.deleteCompanyImg(cid,img,function(err,result) {
+        if (err) {
+            console.log(err)
+        }
+        res.send(result);
+    });
+
+});
+
+
+
+
 
 
 module.exports = router;

@@ -125,4 +125,28 @@ JobResume.prototype.isPost = function (id,jkey,callback) {
     });
 };
 
+
+// ------------------------------------------简历数量+1 ------------------------------------------------
+
+
+JobResume.prototype.resumePlus = function (jkey,callback) {
+    var sql = 'update  recruitment.job_release set num=num+1 where jkey = ？';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql,[jkey],function(err, results) {
+            if (err) {
+                callback(err);
+            }
+            connection.release();
+            callback('true');
+        });
+
+    });
+};
+
 module.exports = JobResume;

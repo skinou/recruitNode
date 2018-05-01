@@ -102,4 +102,21 @@ router.get('/selectCompanyManager', function(req, res, next) {
 
 });
 
+
+router.get('/getCompanyImg', function(req, res, next) {
+    // 获取公司基本信息
+    var company = new Company();
+    var cid = req.query.cid;
+
+    company.getCompanyImg( cid,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        console.log(result);
+        res.send(result)
+    });
+});
+
+
+
 module.exports = router;

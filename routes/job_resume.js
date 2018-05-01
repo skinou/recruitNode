@@ -188,12 +188,26 @@ router.post('/insertResume', function(req, res, next) {
     var rtime = req.body.rtime;
     var jobResume = new JobResume();
 
-    jobResume.updateJobResumeState(id,cid,jkey,state,rtime,function(err,result){
+    jobResume.insertResume(id,cid,jkey,state,rtime,function(err,result){
         if(err){
             console.log(err)
         }
-        res.send('true');
+
+        jobResume.resumePlus(jkey,function(err,result){
+            if(err){
+                console.log(err)
+            }
+
+            res.send('true');
+
+        });
+
+        // res.send('true');
     });
+
+
+
+
 });
 
 

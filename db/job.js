@@ -5,7 +5,7 @@ var Job = function(){};
 // ------------------------------------------插入岗位信息------------------------------------------------
 
 Job.prototype.insertJobRelease = function (cid,obj,callback) {
-    var sql = 'insert into recruitment.job_release (jkey,cid,jname,salary,city,direction,experience,degree,jtype,jobTag,temptation,duty,skill,ability,address,jtime) values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);';
+    var sql = 'insert into recruitment.job_release (jkey,cid,jname,salary,city,direction,experience,degree,jtype,jobTag,temptation,duty,skill,ability,address,jtime,num) values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0);';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
