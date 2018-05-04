@@ -90,13 +90,14 @@ router.post('/updateJobTemptation', function(req, res, next) {
 
     var jkey = req.body.jkey;
     var temptation = req.body.temptation;
+    var jtime = req.body.jtime;
 
     console.log(temptation);
     console.log(jkey);
 
     var job = new Job();
 
-    job.updateJobTemptation(temptation,jkey,function(err,result){
+    job.updateJobTemptation(temptation,jtime,jkey,function(err,result){
         if(err){
             console.log(err)
         }
@@ -112,13 +113,13 @@ router.post('/updateJobDuty', function(req, res, next) {
 
     var jkey = req.body.jkey;
     var duty = req.body.duty;
-
+    var jtime = req.body.jtime;
     console.log(duty);
     console.log(jkey);
 
     var job = new Job();
 
-    job.updateJobDuty(duty,jkey,function(err,result){
+    job.updateJobDuty(duty,jtime,jkey,function(err,result){
         if(err){
             console.log(err)
         }
@@ -135,13 +136,13 @@ router.post('/updateJobAbility', function(req, res, next) {
 
     var jkey = req.body.jkey;
     var ability = req.body.ability;
-
+    var jtime = req.body.jtime;
     console.log(ability);
     console.log(jkey);
 
     var job = new Job();
 
-    job.updateJobDuty(ability,jkey,function(err,result){
+    job.updateJobDuty(ability,jtime,jkey,function(err,result){
         if(err){
             console.log(err)
         }
@@ -157,13 +158,13 @@ router.post('/updateJobSkill', function(req, res, next) {
 
     var jkey = req.body.jkey;
     var skill = req.body.skill;
-
+    var jtime = req.body.jtime;
     console.log(skill);
     console.log(jkey);
 
     var job = new Job();
 
-    job.updateJobSkill(skill,jkey,function(err,result){
+    job.updateJobSkill(skill,jtime,jkey,function(err,result){
         if(err){
             console.log(err)
         }
@@ -179,13 +180,13 @@ router.post('/updateJobAddress', function(req, res, next) {
 
     var jkey = req.body.jkey;
     var address = req.body.address;
-
+    var jtime = req.body.jtime;
     console.log(address);
     console.log(jkey);
 
     var job = new Job();
 
-    job.updateJobAddress(address,jkey,function(err,result){
+    job.updateJobAddress(address,jtime,jkey,function(err,result){
         if(err){
             console.log(err)
         }

@@ -84,7 +84,7 @@ Job.prototype.selectJobDetail = function (jkey,callback) {
 
 
 Job.prototype.updateJobDetail = function (obj,jkey,callback) {
-    var sql = 'update recruitment.job_release set jname= ? , salary= ?, city= ? , direction= ? ,experience= ? ,degree= ? ,jtype= ? ,jobTag= ? where jkey = ?;';
+    var sql = 'update recruitment.job_release set jname= ? , salary= ?, city= ? , direction= ? ,experience= ? ,degree= ? ,jtype= ? ,jobTag= ? ,jtime = ? where jkey = ?;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -92,7 +92,7 @@ Job.prototype.updateJobDetail = function (obj,jkey,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [obj.jname,obj.salary,obj.city,obj.direction,obj.experience,obj.degree,obj.jtype,obj.jobTag,jkey], function(err, results) {
+        connection.query(sql, [obj.jname,obj.salary,obj.city,obj.direction,obj.experience,obj.degree,obj.jtype,obj.jobTag,obj.jtime,jkey], function(err, results) {
             if (err) {
                 callback(err);
             }
@@ -107,8 +107,8 @@ Job.prototype.updateJobDetail = function (obj,jkey,callback) {
 // ------------------------------------------修改公司 岗位诱惑 ------------------------------------------------
 
 
-Job.prototype.updateJobTemptation = function (temptation,jkey,callback) {
-    var sql = 'update recruitment.job_release set temptation= ? where jkey = ?;';
+Job.prototype.updateJobTemptation = function (temptation,jtime,jkey,callback) {
+    var sql = 'update recruitment.job_release set temptation= ? , jtime = ? where jkey = ?;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -116,7 +116,7 @@ Job.prototype.updateJobTemptation = function (temptation,jkey,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [temptation,jkey], function(err, results) {
+        connection.query(sql, [temptation,jtime,jkey], function(err, results) {
             if (err) {
                 callback(err);
             }
@@ -130,8 +130,8 @@ Job.prototype.updateJobTemptation = function (temptation,jkey,callback) {
 // ------------------------------------------修改公司 岗位职责 ------------------------------------------------
 
 
-Job.prototype.updateJobDuty = function (duty,jkey,callback) {
-    var sql = 'update recruitment.job_release set duty= ? where jkey = ?;';
+Job.prototype.updateJobDuty = function (duty,jtime,jkey,callback) {
+    var sql = 'update recruitment.job_release set duty= ? ,jtime=? where jkey = ?;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -139,7 +139,7 @@ Job.prototype.updateJobDuty = function (duty,jkey,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [duty,jkey], function(err, results) {
+        connection.query(sql, [duty,jtime,jkey], function(err, results) {
             if (err) {
                 callback(err);
             }
@@ -154,8 +154,8 @@ Job.prototype.updateJobDuty = function (duty,jkey,callback) {
 // ------------------------------------------修改公司 岗位能力 ------------------------------------------------
 
 
-Job.prototype.updateJobAbility = function (ability,jkey,callback) {
-    var sql = 'update recruitment.job_release set ability= ? where jkey = ?;';
+Job.prototype.updateJobAbility = function (ability,jtime,jkey,callback) {
+    var sql = 'update recruitment.job_release set ability= ?,jtime=? where jkey = ?;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -163,7 +163,7 @@ Job.prototype.updateJobAbility = function (ability,jkey,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [ability,jkey], function(err, results) {
+        connection.query(sql, [ability,jtime,jkey], function(err, results) {
             if (err) {
                 callback(err);
             }
@@ -177,8 +177,8 @@ Job.prototype.updateJobAbility = function (ability,jkey,callback) {
 // ------------------------------------------修改公司 岗位技能 ------------------------------------------------
 
 
-Job.prototype.updateJobSkill = function (skill,jkey,callback) {
-    var sql = 'update recruitment.job_release set skill= ? where jkey = ?;';
+Job.prototype.updateJobSkill = function (skill,jtime,jkey,callback) {
+    var sql = 'update recruitment.job_release set skill= ?,jtime=? where jkey = ?;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -186,7 +186,7 @@ Job.prototype.updateJobSkill = function (skill,jkey,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [skill,jkey], function(err, results) {
+        connection.query(sql, [skill,jtime,jkey], function(err, results) {
             if (err) {
                 callback(err);
             }
@@ -201,8 +201,8 @@ Job.prototype.updateJobSkill = function (skill,jkey,callback) {
 // ------------------------------------------修改公司 岗位工作地址 ------------------------------------------------
 
 
-Job.prototype.updateJobAddress = function (address,jkey,callback) {
-    var sql = 'update recruitment.job_release set address= ? where jkey = ?;';
+Job.prototype.updateJobAddress = function (address,jtime,jkey,callback) {
+    var sql = 'update recruitment.job_release set address= ? ,jtime=?where jkey = ?;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -210,7 +210,7 @@ Job.prototype.updateJobAddress = function (address,jkey,callback) {
             return;
         }
         // make the query
-        connection.query(sql, [address,jkey], function(err, results) {
+        connection.query(sql, [address,jtime,jkey], function(err, results) {
             if (err) {
                 callback(err);
             }
