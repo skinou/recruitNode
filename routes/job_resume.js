@@ -225,7 +225,7 @@ router.get('/isPost', function(req, res, next) {
         if(err){
             console.log(err)
         }
-        res.send('true');
+        res.send(result);
     });
 });
 

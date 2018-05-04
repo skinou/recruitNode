@@ -3,7 +3,7 @@ var db = require('./db_pool');
 var Search = function(){};
 
 Search.prototype.conditionSearch = function (keyword,callback) {
-    var sql = 'SELECT * FROM recruitment.job_release WHERE  jname like ?;';
+    var sql = 'SELECT * FROM recruitment.job_release inner join (SELECT * FROM recruitment.company_info) as newtable where job_release.cid = newtable.cid and jname like ? ';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -21,6 +21,8 @@ Search.prototype.conditionSearch = function (keyword,callback) {
 
     });
 };
+
+
 
 
 module.exports = Search;

@@ -253,5 +253,32 @@ Job.prototype.selectJobDetailForUser = function (jkey,callback) {
 
 
 
+// ------------------------------------------选取所有岗位信息------------------------------------------------
+
+
+Job.prototype.getAllJob = function (callback) {
+    var sql = 'SELECT * FROM recruitment.job_release inner join (SELECT * FROM recruitment.company_info) as newtable where job_release.cid = newtable.cid;';
+
+    db.pool.getConnection(function(err, connection) {
+        if (err) {
+            callback(true);
+            return;
+        }
+        // make the query
+        connection.query(sql, function(err, results) {
+            if (err) {
+                callback('false');
+            }
+            connection.release();
+            callback(false, results);
+        });
+
+    });
+};
+
+
+
+
+
 
 module.exports = Job;

@@ -119,7 +119,7 @@ JobResume.prototype.isPost = function (id,jkey,callback) {
                 callback(err);
             }
             connection.release();
-            callback('true');
+            callback(false,results);
         });
 
     });
@@ -130,7 +130,7 @@ JobResume.prototype.isPost = function (id,jkey,callback) {
 
 
 JobResume.prototype.resumePlus = function (jkey,callback) {
-    var sql = 'update  recruitment.job_release set num=num+1 where jkey = ？';
+    var sql = 'update recruitment.job_release set num=num+1 where jkey = ?';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {

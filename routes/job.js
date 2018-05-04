@@ -216,4 +216,39 @@ router.get('/selectJobDetailForUser', function(req, res, next) {
 
 
 
+// ------------------------------------------选取公司 特定 岗位信息（ 用户页面 ）------------------------------------------------
+
+router.get('/selectJobDetailForUser', function(req, res, next) {
+    var jkey = req.query.jkey;
+    var job = new Job();
+
+    job.selectJobDetailForUser(jkey,function(err,result){
+        if(err){
+            console.log(err)
+        }
+        // var arr = result[0].statement.split('\n')
+        console.log(result);
+        res.send(result);
+    });
+});
+
+
+// ------------------------------------------选取所有岗位信息-----------------------------------------------
+
+router.get('/getAllJob', function(req, res, next) {
+
+    var job = new Job();
+
+    job.getAllJob(function(err,result){
+        if(err){
+            console.log(err)
+        }
+
+        console.log(result);
+        res.send(result);
+    });
+});
+
+
+
 module.exports = router;
