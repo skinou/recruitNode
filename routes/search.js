@@ -6,8 +6,6 @@ var Search = require('../db/search');
 
 
 router.post('/search', function(req, res, next) {
-    //提取团队信息
-
     var keyword = req.body.keyword;
     var newkey = "%"+keyword+"%";
     var search = new Search();
@@ -25,5 +23,23 @@ router.post('/search', function(req, res, next) {
 
 });
 
+
+router.post('/searchCompany', function(req, res, next) {
+    var keyword = req.body.keyword;
+    var newkey = "%"+keyword+"%";
+    var search = new Search();
+
+    console.log(keyword);
+    console.log(newkey);
+
+    search.conditionSearchCompsny(newkey,function(err,result) {
+        if (err) {
+            console.log(err)
+        }
+        console.log(result);
+        res.send(result);
+    });
+
+});
 
 module.exports = router;
