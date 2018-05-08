@@ -17,7 +17,7 @@ router.post('/search', function(req, res, next) {
         if (err) {
             console.log(err)
         }
-        console.log(result);
+        // console.log(result);
         res.send(result);
     });
 

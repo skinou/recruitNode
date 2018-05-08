@@ -251,5 +251,22 @@ router.get('/getAllJob', function(req, res, next) {
 });
 
 
+// ------------------------------------------选取所有岗位信息-----------------------------------------------
+
+router.get('/getAllJobHome', function(req, res, next) {
+
+    var job = new Job();
+    var arr;
+
+    job.getAllJobHome(function(err,result){
+        if(err){
+            console.log(err)
+        }
+
+        console.log(result);
+        arr = result.slice(0,9);
+        res.send(arr);
+    });
+});
 
 module.exports = router;
