@@ -264,7 +264,7 @@ router.get('/getAllJobHome', function(req, res, next) {
         }
 
         console.log(result);
-        arr = result.slice(0,9);
+        arr = result.slice(0,12);
         res.send(arr);
     });
 });

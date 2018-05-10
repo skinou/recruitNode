@@ -6,7 +6,7 @@ var Collect = function(){};
 
 
 Collect.prototype.getCollectList = function (id,callback) {
-    var sql = 'select * from recruitment.collect inner join recruitment.job_release on collect.jkey = job_release.jkey and id = ? inner join recruitment.company_info on company_info.cid = job_release.cid ;';
+    var sql = 'select * from recruitment.collect inner join recruitment.job_release on collect.jkey = job_release.jkey and id = ? inner join recruitment.company_info on company_info.cid = job_release.cid ORDER BY time DESC;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -26,8 +26,8 @@ Collect.prototype.getCollectList = function (id,callback) {
 };
 
 
-Collect.prototype.insertCollectList = function (id,jkey,callback) {
-    var sql = 'insert into recruitment.collect (id,jkey) values(?,?);';
+Collect.prototype.insertCollectList = function (id,jkey,time,callback) {
+    var sql = 'insert into recruitment.collect (id,jkey,time) values(?,?,?);';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
@@ -35,7 +35,7 @@ Collect.prototype.insertCollectList = function (id,jkey,callback) {
             return;
         }
         // make the query
-        connection.query(sql,[id,jkey],function(err, results) {
+        connection.query(sql,[id,jkey,time],function(err, results) {
             if (err) {
                 callback(err);
             }

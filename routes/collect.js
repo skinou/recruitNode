@@ -26,10 +26,11 @@ router.post('/insertCollectList', function(req, res, next) {
 
     var id = req.session.user.id;
     var jkey = req.body.jkey;
+    var time = req.body.time;
     console.log(id);
     var collect = new Collect();
 
-    collect.insertCollectList(id,jkey,function(err,result) {
+    collect.insertCollectList(id,jkey,time,function(err,result) {
         if (err) {
             console.log(err)
         }

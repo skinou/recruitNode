@@ -261,9 +261,6 @@ router.post('/insertUserPro', function(req, res, next) {
         if(err){
             console.log(err)
         }
-        var arr = result[0].statement.split('\n')
-        console.log(arr)
-        console.log(result);
         res.send(result);
     });
 });
