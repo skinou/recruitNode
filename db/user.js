@@ -124,7 +124,6 @@ User.prototype.insertUserExpect = function (id,callback) {
             }
             connection.release();
             callback('true');
-
         });
 
     });
@@ -391,7 +390,7 @@ User.prototype.selectDes = function (id,callback) {
 };
 
 
-User.prototype.insertDes = function (id,statement,callback) {
+User.prototype.insertDes = function (id,callback) {
     var sql = 'insert into recruitment.user_describe (id,statement) values (?,null) ';
 
     db.pool.getConnection(function(err, connection) {
@@ -406,7 +405,6 @@ User.prototype.insertDes = function (id,statement,callback) {
             }
             connection.release();
             callback('true');
-
         });
 
     });

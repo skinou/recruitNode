@@ -24,7 +24,7 @@ Search.prototype.conditionSearch = function (keyword,callback) {
 
 
 Search.prototype.conditionSearchCompsny = function (keyword,callback) {
-    var sql = 'SELECT * FROM recruitment.company_info WHERE cname like ? or field like ? or city like ? ORDER BY jtime DESC;';
+    var sql = 'SELECT * FROM recruitment.company_info WHERE cname like ? or field like ? or city like ? ORDER BY c_time DESC;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {

@@ -456,7 +456,19 @@ router.post('/deleteCompanyImg', function(req, res, next) {
 });
 
 
+// ------------------------------------获取所有公司----------------------------------------------
 
+router.get('/getAllCompanyHome', function(req, res, next) {
+    // 获取公司基本信息
+    var company = new Company();
+    company.selectCompanyAll(function(err,result){
+        if(err){
+            console.log(err)
+        }
+        var arr = result.slice(0,12);
+        res.send(arr)
+    });
+});
 
 
 

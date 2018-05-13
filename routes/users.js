@@ -350,6 +350,7 @@ router.post('/updateUserPassword', function(req, res, next) {
     var password = req.body.password;
     var id = req.session.user.id;
     console.log(id);
+    console.log(password);
     var login = new Login();
     login.updateUserPassword(password,id,function(err,result){
         if(err){
