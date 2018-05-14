@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7f275cb-6bd2-4837-a006-dea35e4e45f5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/job_resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/job_resume.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +17,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="24" column="26" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="26" />
+            <state relative-caret-position="418">
+              <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job_resume.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/job_resume.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job_resume.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/job_resume.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="company.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/company.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1596">
+              <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="company.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/company.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4009">
+              <caret line="211" selection-start-line="211" selection-end-line="211" />
             </state>
           </provider>
         </entry>
@@ -28,7 +65,7 @@
       <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1449">
+            <state relative-caret-position="1767">
               <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
             </state>
           </provider>
@@ -63,7 +100,6 @@
         <option value="$PROJECT_DIR$/db/company.js" />
         <option value="$PROJECT_DIR$/routes/companyForUser.js" />
         <option value="$PROJECT_DIR$/routes/job_resume.js" />
-        <option value="$PROJECT_DIR$/db/job_resume.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/db/job.js" />
         <option value="$PROJECT_DIR$/routes/search.js" />
@@ -74,6 +110,7 @@
         <option value="$PROJECT_DIR$/db/user.js" />
         <option value="$PROJECT_DIR$/db/search.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
+        <option value="$PROJECT_DIR$/db/job_resume.js" />
       </list>
     </option>
   </component>
@@ -89,8 +126,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="97" />
-    <option name="y" value="32" />
+    <option name="x" value="387" />
+    <option name="y" value="63" />
     <option name="width" value="1285" />
     <option name="height" value="910" />
   </component>
@@ -99,7 +136,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,13 +157,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="9.2.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../recuritWeb" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
@@ -244,7 +281,9 @@
       <workItem from="1525920871476" duration="628000" />
       <workItem from="1526180823947" duration="117000" />
       <workItem from="1526183206239" duration="2604000" />
-      <workItem from="1526202620885" duration="1602000" />
+      <workItem from="1526202620885" duration="1707000" />
+      <workItem from="1526299081334" duration="2979000" />
+      <workItem from="1526304725885" duration="1829000" />
     </task>
     <task id="LOCAL-00001" summary="8.0">
       <created>1522470332443</created>
@@ -358,23 +397,30 @@
       <option name="project" value="LOCAL" />
       <updated>1526213039382</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="22.0">
+      <created>1526215249958</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1526215249958</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180727000" />
+    <option name="totallyTimeSpent" value="185640000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="78" y="26" width="1028" height="728" extended-state="1" />
+    <frame x="310" y="51" width="1028" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19329388" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19329388" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25570032" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32247558" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.2450852" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -409,7 +455,8 @@
     <MESSAGE value="19.0" />
     <MESSAGE value="20.0" />
     <MESSAGE value="21.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="21.0" />
+    <MESSAGE value="22.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="22.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -649,20 +696,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/companyForUser.js" />
-    <entry file="file://$PROJECT_DIR$/routes/job_resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1314">
-          <caret line="195" column="26" selection-start-line="195" selection-start-column="26" selection-end-line="195" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/job_resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -674,13 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/company.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6802">
-          <caret line="358" column="19" selection-start-line="358" selection-start-column="19" selection-end-line="358" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -719,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/company.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8797">
-          <caret line="463" column="50" selection-start-line="463" selection-start-column="50" selection-end-line="463" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7524">
@@ -756,15 +775,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
+        <state relative-caret-position="1767">
           <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/job_resume.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="26" />
+        <state relative-caret-position="418">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/company.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/company.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4009">
+          <caret line="211" selection-start-line="211" selection-end-line="211" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/job_resume.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
         </state>
       </provider>
     </entry>

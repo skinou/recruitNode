@@ -7,7 +7,7 @@ var JobResume = function(){};
 
 
 JobResume.prototype.getJobResumeList = function (jkey,callback) {
-    var sql = 'select * from recruitment.job_resume inner join recruitment.user_info where job_resume.id = user_info.id and jkey = ?;';
+    var sql = 'select * from recruitment.job_resume inner join recruitment.user_info where job_resume.id = user_info.id and jkey = ? ORDER BY rtime DESC;';
 
     db.pool.getConnection(function(err, connection) {
         if (err) {
